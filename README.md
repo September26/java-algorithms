@@ -6,32 +6,32 @@
 
 ## 项目结构介绍
 
-### src/com/xt/Solution
+### 1.src/com/xt/Solution
 main函数入口类，验证某提示，只替换对应的Solution类和方法即可。
 
-### src/com/xt/MakeCode
+### 2.src/com/xt/MakeCode
 代码生成类，我们想本地调试某些链表，或者二叉树结构时，代码去编写这些结构代码是很费时费力的，使用代码生成类一键生成。
 
-### src/com/xt/model
+### 3.src/com/xt/model
 model汇总，
 链表Model:ListNode;
 二叉树Model:TreeNode
 复杂链表Model:RandomListNode
 
-### src/com/xt/leetcode
+### 4.src/com/xt/leetcode
 力扣的编程题解法和代码汇总
 详细说明文章链接：https://blog.csdn.net/rzleilei/article/details/121477931?spm=1001.2014.3001.5501
 
-### src/com/xt/niuke
+### 5.src/com/xt/niuke
 牛客的编程题解法和代码汇总
 详细说明文章链接：https://blog.csdn.net/rzleilei/article/details/99418430?spm=1001.2014.3001.5502
 
-### src/com/xt/lintcode
+### 6.src/com/xt/lintcode
 lintcode的编程题解法和代码汇总
 
-### src/com/xt/paixu
+### 7.src/com/xt/paixu
 排序算法汇总
 
-### src/com/xt/self
+### 8.src/com/xt/self
 这里是作者自己出的题目，有的甚至作者自己都没解决，大家可以尝试下
 项目介绍链接：https://blog.csdn.net/rzleilei/category_1839075.html?spm=1001.2014.3001.5482
