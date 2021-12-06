@@ -18,8 +18,8 @@ public class MakeCode {
         MakeCode makeCode = new MakeCode();
 
         //生成二叉树代码
-        String str = "{1,#,2,#,3,#,4,#,5}";
-        makeCode.makeTreeNode(str);
+//        String str = "{1,#,2,#,3,#,4,#,5}";
+//        makeCode.makeTreeNode(str);
 
 
         //生成链表代码

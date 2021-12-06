@@ -1,8 +1,12 @@
 package com.xt;
 
 
-import com.xt.leetcode.Solution2;
+import com.xt.leetcode.*;
 import com.xt.model.ListNode;
+
+import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -18,39 +22,24 @@ import com.xt.model.ListNode;
 public class Solution {
 
     public static void main(String[] args) {
-        Solution2 solution = new Solution2();
-        int[] nums = new int[]{2, 7, 11, 15};
+//        Pattern compile = Pattern.compile("^(a.*)(babca)(.*ca)$");
+//        Matcher matcher = compile.matcher("(ac)(babca)(babca)");
 
-        //9999999
-        //9999
+//        String p = "ba.*a.*babca.*ca";
+//        String s = "abaaacacbabcababca";
 
-        //89990001
-        ListNode node11 = new ListNode(9);
-        ListNode node12 = new ListNode(9);
-        ListNode node13 = new ListNode(9);
-        ListNode node14 = new ListNode(9);
-        ListNode node15 = new ListNode(9);
-        ListNode node16 = new ListNode(9);
-        ListNode node17 = new ListNode(9);
-        node11.next = node12;
-        node12.next = node13;
-        node13.next = node14;
-        node14.next = node15;
-        node15.next = node16;
-        node16.next = node17;
 
-        ListNode node21 = new ListNode(9);
-        ListNode node22 = new ListNode(9);
-        ListNode node23 = new ListNode(9);
-        ListNode node24 = new ListNode(9);
-        node21.next = node22;
-        node22.next = node23;
-        node23.next = node24;
-
-        Object obejct = solution.addTwoNumbers(node11, node21);
+//        String p = "(b)(a.*)(a.*)(babc)(a.*)(ca)";
+//        String s = "(b)(aa)(acac)(babc)(abab)(ca)";
+//        Pattern compile = Pattern.compile("^" + p + "$");
+//        Matcher matcher = compile.matcher(s);
+//        System.out.println(matcher.matches());
+        Solution3 solution = new Solution3();
+        Object obejct = solution.lengthOfLongestSubstring("abcadb");
         print(obejct);
-    }
 
+
+    }
 
     /**
      * 输出结果
