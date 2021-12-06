@@ -4,6 +4,12 @@
 ## 项目介绍
 项目是普通的javaSE项目，可以使用Eclipse，IntelliJ，Android Studio打开，推荐IntelliJ。
 
+### 牛客(剑指offer)进度
+首页86题已完成
+
+### leetCode(力扣)进度
+已完成1到20题（其中4，10题未完成，还在进行中）。
+
 ## 项目结构介绍
 
 ### 1.src/com/xt/Solution
