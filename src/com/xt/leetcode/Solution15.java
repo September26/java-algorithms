@@ -26,7 +26,16 @@ import java.util.*;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/3sum
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ * 题解：
+ * 首先，把所有的数以值为key存储到map当中，value为对应的List<index>值。
+ * 分三种情况，
+ * 1.三个数都相同：只要判断一下，map中key=0的数字有没有超过三个即可。
+ * 2.两个数相同：遍历map，找到value的list中数量超过2个的，然后相减找到三数相加等于0的那个数，然后判断map中是否存在。
+ * 3.三个数都不同：这个有点麻烦了，只能双重for循环。遍历找到两个数之后，然后判断第三个是否存在。
+ *
  * done
+ *
  */
 public class Solution15 {
     public List<List<Integer>> threeSum(int[] nums) {

@@ -1,9 +1,6 @@
 package com.xt.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 18. 四数之和
@@ -29,42 +26,92 @@ import java.util.Map;
  * 链接：https://leetcode-cn.com/problems/4sum
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * O(n3)
+ * state:done
  */
 public class Solution18 {
+
     List<List<Integer>> list = new ArrayList<>();
+    Map<Integer, Integer> indexMap = new HashMap<>();
+    Map<Integer, Integer> timesMap = new HashMap<>();
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
-
-        Map<Integer, List<Integer>> indexMap = new HashMap<>();
+        Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
-            List<Integer> integers = indexMap.computeIfAbsent(nums[i], integer -> new ArrayList<>());
-            integers.add(i);
+            indexMap.putIfAbsent(nums[i], i);
+            Integer times = timesMap.getOrDefault(nums[i], 0);
+            timesMap.put(nums[i], times + 1);
         }
 
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    int expect = target - nums[i] - nums[j] - nums[k];
-                    List<Integer> integers = indexMap.get(expect);
-                    if (integers == null || integers.size() == 0) {
-                        continue;
-                    }
-                    for (int index : integers) {
-                        if (index > k) {
-                            ArrayList<Integer> newList = new ArrayList<>();
-                            newList.add(nums[i]);
-                            newList.add(nums[j]);
-                            newList.add(nums[k]);
-                            newList.add(expect);
-                            list.add(newList);
-                        }
-                    }
-                }
-            }
-        }
+        addByNum(0, target, 4, nums, 0, 0, 0, 0);
         return list;
     }
 
+    //
+    private void addByNum(int start, int target, int haveTimes, int[] nums, int i1, int i2, int i3, int i4) {
+//        System.out.println("i1:" + i1 + ",i2:" + i2 + ",i3:" + i3 + ",i4:" + i4 + ",t:" + haveTimes);
+        if (haveTimes <= 0) {
+            if (target == 0) {
+                add(i1, i2, i3, i4);
+            }
+            return;
+        }
+        if (haveTimes == 1) {
+            Integer targetTimes = timesMap.getOrDefault(target, 0);
+            Integer index3 = indexMap.getOrDefault(target, -1);
+            if (targetTimes > 0 && index3 >= start) {
+                add(i1, i2, i3, target);
+            }
+            return;
+        }
 
+        for (int i = start; i < nums.length; ) {
+            int value = nums[i];
+            Integer times = timesMap.getOrDefault(value, 0);
+            Integer index = indexMap.get(value);
+            int nextStart = index + times;
+            i += times;
+            if (haveTimes == 4) {
+                addByNum(nextStart, target - value, haveTimes - 1, nums, value, 0, 0, 0);
+                if (times >= 2) {
+                    addByNum(nextStart, target - value * 2, haveTimes - 2, nums, value, value, 0, 0);
+                }
+                if (times >= 3) {
+                    addByNum(nextStart, target - value * 3, haveTimes - 3, nums, value, value, value, 0);
+                }
+                if (times >= haveTimes) {
+                    if (haveTimes * value == target) {
+                        add(value, value, value, value);
+                    }
+                }
+                continue;
+            }
+            if (haveTimes == 3) {
+                addByNum(nextStart, target - value, haveTimes - 1, nums, i1, value, 0, 0);
+                if (times >= 2) {
+                    addByNum(nextStart, target - value * 2, haveTimes - 2, nums, i1, value, value, 0);
+                }
+                if (times >= 3) {
+                    addByNum(nextStart, target - value * 3, haveTimes - 3, nums, i1, value, value, value);
+                }
+                continue;
+            }
+            if (haveTimes == 2) {
+                addByNum(nextStart, target - value, haveTimes - 1, nums, i1, i2, value, 0);
+                if (times >= 2) {
+                    addByNum(nextStart, target - value * 2, haveTimes - 2, nums, i1, i2, value, value);
+                }
+            }
+
+        }
+    }
+
+
+    private void add(int i1, int i2, int i3, int i4) {
+        ArrayList<Integer> integers = new ArrayList<>();
+        integers.add(i1);
+        integers.add(i2);
+        integers.add(i3);
+        integers.add(i4);
+        list.add(integers);
+    }
 }

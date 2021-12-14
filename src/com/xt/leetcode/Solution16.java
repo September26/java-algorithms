@@ -23,6 +23,12 @@ import java.util.Arrays;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/3sum-closest
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ * 题解：
+ * 这种题，不做优化，时间复杂度就是O(n3)。可以通过排序降低一层时间复杂度。
+ * 第一层for循环，从前往后遍历每个数值。
+ * 第二层循环，设置start和end指针，计算三者和target最接近的值。如果比target大了，则end--,小了，则start++。
+ *
  * done
  */
 public class Solution16 {

@@ -3,7 +3,17 @@ package com.xt;
 
 import com.xt.leetcode.*;
 import com.xt.model.ListNode;
+import com.xt.util.IOHelper;
+import org.omg.IOP.IORHelper;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,22 +32,34 @@ import java.util.regex.Pattern;
 public class Solution {
 
     public static void main(String[] args) {
-//        Pattern compile = Pattern.compile("^(a.*)(babca)(.*ca)$");
-//        Matcher matcher = compile.matcher("(ac)(babca)(babca)");
+//        int length = 56 * 49;
+//        int seventh = (length >> 3) + (length >> 6) + 1;
+//        System.out.print(seventh);
+        try {
+//            boolean flag1 = false;
+//            boolean flag2 = false;
+//            boolean flag3 = true;
+//            boolean flag4 = true;
+//            boolean flag5 = false;
+//            boolean flag6 = true;
+//            System.out.println(flag1&flag2&flag3|flag4&flag5&flag6);
+            Solution630 solution = new Solution630();
+//            ArrayList<Integer> integers = new ArrayList<>();
+//            solution.addToList(2,integers);
+//            solution.addToList(3,integers);
+//            solution.addToList(0,integers);
+//            solution.addToList(4,integers);
+//            solution.addToList(6,integers);
+//            solution.addToList(8,integers);
+//            solution.addToList(5,integers);
+//            print(integers);
 
-//        String p = "ba.*a.*babca.*ca";
-//        String s = "abaaacacbabcababca";
-
-
-//        String p = "(b)(a.*)(a.*)(babc)(a.*)(ca)";
-//        String s = "(b)(aa)(acac)(babc)(abab)(ca)";
-//        Pattern compile = Pattern.compile("^" + p + "$");
-//        Matcher matcher = compile.matcher(s);
-//        System.out.println(matcher.matches());
-        Solution3 solution = new Solution3();
-        Object obejct = solution.lengthOfLongestSubstring("abcadb");
-        print(obejct);
-
+//            Object obejct = solution.scheduleCourse(new int[][]{{914, 9927}, {333, 712}, {163, 5455}, {835, 5040}, {905, 8433}, {417, 8249}, {921, 9553}, {913, 7394}, {303, 7525}, {582, 8658}, {86, 957}, {40, 9152}, {600, 6941}, {466, 5775}, {718, 8485}, {34, 3903}, {380, 9996}, {316, 7755}});
+            Object obejct = solution.scheduleCourse(new int[][]{{100, 200}, {200, 1300}, {1000, 1250}, {2000, 3200}});
+            print(obejct);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
