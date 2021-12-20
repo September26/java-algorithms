@@ -1,6 +1,7 @@
 package com.xt.self;
 
 
+import com.xt.Solution;
 import com.xt.model.ListNode;
 
 public class LianBiao {
@@ -20,22 +21,47 @@ public class LianBiao {
 
 
         ListNode header = node1;
-
-        while (node1.next != null) {
-            ListNode n3 = node1.next.next;//记录3节点
-            ListNode next = node1.next;//把n1.next设置为头
-            next.next = header;
-            header = next;
-            node1.next = n3;
-            System.out.println("x");
-        }
-
-        System.out.println(header);
+//
+//        while (node1.next != null) {
+//            ListNode n3 = node1.next.next;//记录3节点
+//            ListNode next = node1.next;//把n1.next设置为头
+//            next.next = header;
+//            header = next;
+//            node1.next = n3;
+//        }
+//
+//        System.out.println(header);
 
         //反转链表
-        solution.fanzhuan(header);
+//        solution.fanzhuan(header);
+
+        solution.fanzhuan2(header);
+        System.out.println(header);
     }
 
+
+    //非递归方式
+    public ListNode fanzhuan2(ListNode node) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+        ListNode header = node;
+        ListNode nextNode = node.next;
+        header.next = null;
+        while (nextNode != null) {
+            //4步
+            ListNode local = nextNode.next;
+            nextNode.next = header;
+            header = nextNode;
+            nextNode = local;
+
+            Solution.print(header);
+        }
+        return header;
+
+    }
+
+    //递归方式
     public ListNode fanzhuan(ListNode node) {
         if (node == null || node.next == null) {
             return node;
@@ -45,6 +71,7 @@ public class LianBiao {
         node.next.next = null;
         return topNode;//5
     }
+
 
     //交换链表节点
     public ListNode exchange(ListNode node1, ListNode node2) {
