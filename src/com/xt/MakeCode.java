@@ -7,8 +7,9 @@ import java.util.List;
 
 /**
  * 这个类用来生成二叉树代码和链表代码
- * 1.二叉树代码生成：输入类似{1,#,2,#,3,#,4,#,5}格式的字符串，即可打印输出对应的二叉树结构代码
- * 2.二叉树代码生成：输入类似{1,2,3,4,5}格式的字符串，即可打印输出对应的链表结构代码
+ * 1.二叉树代码生成:makeTreeNode：输入类似{1,#,2,#,3,#,4,#,5}格式的字符串，即可打印输出对应的二叉树结构代码
+ * 2.二叉树代码生成:makeListNode：输入类似{1,2,3,4,5}格式的字符串，即可打印输出对应的链表结构代码
+ * 3.二维数组转List<List<>>形式
  */
 public class MakeCode {
 
@@ -24,8 +25,37 @@ public class MakeCode {
 
         //生成链表代码
         makeCode = new MakeCode();
-        String str2 = "{1,2,3,4,5,6,7}";
-        makeCode.makeListNode(str2);
+//        String str2 = "{1,2,3,4,5,6,7}";
+//        makeCode.makeListNode(str2);
+
+        String str3 = "[[20,22],[71,38],[65,69],[63,69],[80,2],[67,31],[65,81],[4,58],[46,60],[32,20],[29,86],[74,73],[3,67],[26,0],[71,33],[76,84],[63,4],[36,12],[28,99],[27,85],[94,56],[32,78],[56,49],[63,27],[41,21],[91,96],[34,37],[9,24],[59,51],[82,6],[94,38],[70,87],[24,88],[42,18],[57,46],[69,47],[10,1],[34,67],[55,99],[81,23],[12,63],[24,75],[39,5],[41,42],[70,70],[7,86],[94,45],[28,81],[22,14],[80,87],[2,10],[26,88],[64,72],[92,69],[74,58],[44,38],[59,53],[10,67],[59,21],[17,54],[51,89],[8,37],[40,72],[71,31],[93,5],[57,88],[60,21],[47,40],[44,49],[16,14],[84,37],[38,1],[29,81],[79,38],[91,21],[4,42],[86,45],[62,81],[29,69],[22,71],[45,10],[28,80],[43,71],[25,87],[8,87],[89,42],[76,69],[97,9],[3,26],[81,19],[5,36],[31,100],[40,31],[23,12],[23,45]]";
+        makeCode.makeListList(str3);
+
+    }
+
+    /**
+     * 根据二维数组，生成对应的List<List>
+     * @param str
+     */
+    public void makeListList(String str) {
+
+//        List<List<Integer>> points = new ArrayList<>();
+//        List<Integer> point0 = new ArrayList<>();
+//        point0.add(1);
+//        point0.add(1);
+
+        String substring = str.substring(1, str.length() - 1);
+        String[] split = substring.split("],");
+        print("List<List<Integer>> points = new ArrayList<>();");
+        for (int i = 0; i < split.length; i++) {
+            String s = split[i];
+            String[] split1 = s.split(",");
+            print("List<Integer> point" + i + " = new ArrayList<>();");
+            print("point" + i + ".add(" + split1[0].replaceAll("\\[", "") + ");");
+            print("point" + i + ".add(" + split1[1].replaceAll("\\]", "") + ");");
+            print("points.add(point" + i + ");");
+        }
+
     }
 
     /**
