@@ -11,7 +11,11 @@ import java.util.Vector;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/battleships-in-a-board
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- * state:done
+ * 解题思路：
+ * 我的解题思路有一点low，不过先完成把。遍历每一个点。
+ * 如果读到了'X'，则num++,并且把当前的节点的值改为'.',然后X轴，Y轴都向着增加的方向遍历，读到'X'后继续改为'.'。
+ * 这样就避免了重复读到X了。
+ * 状态:完成
  */
 public class Solution419 {
     final char x = 'X';
@@ -27,7 +31,6 @@ public class Solution419 {
                     i2++;
                     continue;
                 }
-//                System.out.println("i:" + i + ",i2:" + i2);
                 num++;
                 chars[i2] = point;
                 while (i2 + 1 < chars.length && chars[i2 + 1] == x) {

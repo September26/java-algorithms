@@ -27,6 +27,26 @@ import java.util.Map;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/maximum-sum-of-3-non-overlapping-subarrays
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 解题思路：
+ * 这次我写的思路超时了，参考官方的例子来写的。设计到的主要是贪心算法。
+ * 从0开始遍历数组，则读到的值应该是i,i+k,i+2k，这样的读到的数值一定是非嵌套的。
+ * 我们记录几个值：
+ * sum1:当前区间1的和
+ * sum2:当前区间2的和
+ * sum3:当前区间3的和
+ * max1Sum:当前区间之前的sum1的最大值
+ * max12Sum:当前区间之前的sum1+sum2的最大值
+ * max123Sum:当前区间之前的sum1+sum2+sum3的最大值
+ * max1Index:max1Sum改变时，记录其位置
+ * max22Index:max12Sum改变时，记录其第二个区间的位置
+ * max21Index:max12Sum改变时，记录其第一个区间的位置
+ * result:max12Sum改变时，记录其1，2，3个区间的位置
+ * 当i=k-1的时候，这时候我们可以得到第一个sum的值，即0到k-1之间的和为sum1,k到2k-1之间额和为sum2,2k到3k-1之间额和为sum3。同时记录max12Sum=sum1+sum2,max123Sum=max12Sum+sum3.
+ * 继续往后遍历的时候，就要用到贪心算法了，即每次遍历的时候，我们先判断sum1是否更大，如果时，则替换max1Sum。同时判断此时的max1Sum+sum2是否大于max12Sum，如果大于则替换max12Sum。
+ * 这时候我们有个疑问，因为sum2是取的当前值，那么之前会不会有更大的？我们一开始的假设就是max12Sum是当前区间之前最大的，读取一个新值后，那么只存在max1Sum+sum2>max12Sum这一种情况，即sum1的最大值+sum2有可能大于max12Sum,否则之前的max12Sum就不是最大的。
+ * 同理，max123Sum也是一个原理。
+ * <p>
+ * state:done
  */
 public class Solution689 {
 

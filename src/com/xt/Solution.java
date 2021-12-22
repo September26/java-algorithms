@@ -23,8 +23,8 @@ public class Solution {
 
     public static void main(String[] args) {
         try {
-            Solution997 solution = new Solution997();
-            Object object = solution.findJudge(2, new int[][]{{1, 2}});
+            Solution686 solution = new Solution686();
+            Object object = solution.repeatedStringMatch("abc", "cabcabca");//
             print(object);
         } catch (Exception e) {
             e.printStackTrace();

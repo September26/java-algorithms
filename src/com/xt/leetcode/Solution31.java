@@ -1,8 +1,6 @@
 package com.xt.leetcode;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Vector;
 
 /**
  * 31. 下一个排列
@@ -32,6 +30,14 @@ import java.util.Vector;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/next-permutation
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * <p>
+ * 解题思路：
+ * 找下一个更大的数字，我们多试几个数字，就会发现其中的规律。典型来说分为以下几种：
+ * [4,3,2,1]这种递归减小的，这种我们只能
+ * [4,2,3,1]这种，则我们一样从右向左找，找到第一个n+1位置的值大于n位置的。比如这里的n位置的值是2，则我们要从3,1中找到比2大的集合中最小的那个，然后放到位置n。
+ * 对于n-1到length-1位置的，进行一个递增排序即可。
+ * <p>
+ * <p>
  * state:done
  */
 public class Solution31 {

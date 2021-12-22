@@ -19,10 +19,19 @@ import java.util.Vector;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/water-bottles
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 解题思路：
+ * 递归的思路，每次传入当前酒数量，空瓶数量，以及对换值。返回对应的酒的数量。递归截止条件就是当前酒数量+空瓶小于对换值。
+ *
  * state:done
  */
 public class Solution1518 {
 
+    /**
+     * 这是错误的
+     * @param numBottles
+     * @param numExchange
+     * @return
+     */
     public int numWaterBottles(int numBottles, int numExchange) {
         //while循环解决
         int sum = numBottles;

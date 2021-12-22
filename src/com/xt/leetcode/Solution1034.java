@@ -33,8 +33,11 @@ import java.util.Set;
  * 链接：https://leetcode-cn.com/problems/coloring-a-border
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
- * <p>
- * done
+ * 解题思路：
+ * 首先拷贝一份grid，这样对copy进行操作，就不会影响正常的判断。
+ * 然后从row，col开始分别向上，下，左，右四个方向递归寻找，如果四个方向任意一个方向是表格的边界或者是不同颜色值时，则表示是边界。
+ *
+ * state:done
  * 日期:2021.12.07
  */
 public class Solution1034 {

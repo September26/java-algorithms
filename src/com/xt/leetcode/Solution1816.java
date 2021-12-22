@@ -35,7 +35,12 @@ import java.util.Vector;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/truncate-sentence
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- * done
+ *
+ * 解题思路：
+ * 一次的找空格，找到num++，同时记录index值，num=k时跳出循环。
+ * 最后只要取0到index即可。
+ *
+ * state:done
  */
 public class Solution1816 {
 

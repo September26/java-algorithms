@@ -18,6 +18,15 @@ import java.util.*;
  * 链接：https://leetcode-cn.com/problems/maximum-number-of-visible-points
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
+ * 解题思路：
+ * 首先统计一下每个角度的数量，
+ * 我这里用distributionMap来进行记录，key为对应的角度，value是list，记录的是对应角度的points点。
+ * list则记录这所有的key，然后对list进行排序。
+ * 统计结束后，动态区间的概念，定义一个startAngle和一个endAngle，每次增加一个新的角度，判断是否超出角度值，超出则startIndex++，移除对应数量，复合后统计其中的数量即可。
+ * 这里有两个坑要注意。
+ * 首先，如果和坐标原点相同，虽然角度算下来是0，但是实际上是都可见的。所以这部分要单独计算。
+ * 其次，遍历list的时候，循环结束时的判断条件应该是endAngle<=360+angle，对应startAngle<=360
+ *
  * state:done
  */
 public class Solution1610 {

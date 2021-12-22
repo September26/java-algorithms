@@ -39,6 +39,13 @@ import java.util.Map;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/online-election
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 解题思路：
+ * 成员变量如下：
+ * voteMap:实时的记录选举人和票数
+ * maxList:按时间顺序记录对应时刻的胜利者
+ * times:时间数组
+ * 遍历persons，动态的去计票，则每次循环中，voteMap中记录着当时的选举人的票数。则就可以直到对应时间谁是胜者。
+ * 结束后，输入一个时间，根据二分法查找找到对应时间在times中的index值，再去maxList取即可。
  * state:done
  */
 public class Solution911 {
