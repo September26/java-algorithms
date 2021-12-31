@@ -6,8 +6,10 @@ import java.util.Vector;
  * 0.Demo描述
  * 解题思路：
  * <p>
- * 1-10:    4,10
- * 11-20: ok
+ * 1-10:    4
+ * 507,846
+ * <p>
+ * state:
  */
 public class Solution0 {
 

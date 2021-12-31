@@ -3,10 +3,14 @@ package com.xt;
 
 import com.xt.leetcode.*;
 import com.xt.model.ListNode;
+import com.xt.model.TreeNode;
 import com.xt.util.IOHelper;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Stack;
 
 
 /**
@@ -16,26 +20,46 @@ public class Solution {
 
     public static void main(String[] args) {
         try {
-            Solution1705 solution = new Solution1705();
-//            InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
-//            String s = IOHelper.readStrByCode(inputStream, "utf-8");
-//            String[] ms = s.split(",");
-//            int[] ints1 = new int[ms.length];
-//            int[] ints2 = new int[ms.length];
+//            1708
+            Solution846 solution = new Solution846();
+            InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
+            String s = IOHelper.readStrByCode(inputStream, "utf-8");
+//            String[] strings = s.split(",");
 //            for (int i = 0; i < ints1.length; i++) {
 //                ints1[i] = 20000;
 //                ints2[i] = 20000;
 //            }
             long l = System.currentTimeMillis();
-            int[] ints1 = new int[]{2, 2, 3, 5, 2};
-            int[] ints2 = new int[]{3, 2, 1, 4, 2};
-            Object object = solution.eatenApples(ints1, ints2);//p*.aaa
+//            rfkqyuqfjkx
+            String[] strings = {"aaaaac", "a", "aa", "aaa", "aaaa",};
+            int[] ints = new int[]{2, 1, 3, 2, 3, 4, 8, 7, 6};
+            Object object = solution.isNStraightHand(ints,3);//预期96
             print(object);
-            System.out.println("spendTIme:" + (System.currentTimeMillis() - l));
+            System.out.println("spendTime:" + (System.currentTimeMillis() - l));
         } catch (Exception e) {
             e.printStackTrace();
         }
+//        int[] ints = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 8,8, 9, 9, 10};
+//        int i = binarySearch(ints, 8);
+//        System.out.println(i);
+    }
 
+    //找到数组中比target更小的那个
+    public static int binarySearch(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        int ans = 0;
+        int middle = 0;
+        do {
+            middle = (left + right) / 2;
+            int value = nums[middle];
+            if (value > target) {
+                ans = middle;
+                right = middle;
+                continue;
+            }
+            left = middle;
+        } while ((right - left) > 1);
+        return ans;
     }
 
     /**
@@ -59,6 +83,16 @@ public class Solution {
         if (obejct instanceof int[]) {
             StringBuilder builder = new StringBuilder();
             int[] integers = (int[]) obejct;
+            for (int i = 0; i < integers.length; i++) {
+                builder.append(integers[i]);
+                builder.append(',');
+            }
+            System.out.print(builder.toString());
+            return;
+        }
+        if (obejct instanceof String[]) {
+            StringBuilder builder = new StringBuilder();
+            String[] integers = (String[]) obejct;
             for (int i = 0; i < integers.length; i++) {
                 builder.append(integers[i]);
                 builder.append(',');

@@ -1,6 +1,5 @@
 package com.xt.leetcode;
 
-import java.util.*;
 
 /**
  * 1044. 最长重复子串
@@ -22,6 +21,7 @@ import java.util.*;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/longest-duplicate-substring
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * state:done
  */
 public class Solution1044 {
 
@@ -127,7 +127,7 @@ public class Solution1044 {
 //    }
 
     /**
-     * 动态区间额方案
+     * 动态区间的方案
      * @param s
      * @return
      */

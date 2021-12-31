@@ -44,7 +44,7 @@ package com.xt.leetcode;
 public class Solution686 {
 
     /**
-     * 更优解法
+     * 第二种解法
      *
      * @param a
      * @param b
@@ -107,7 +107,7 @@ public class Solution686 {
     }
 
 
-//    第二种解法
+//    第一种解法
 //    public int repeatedStringMatch(String a, String b) {
 //        int aLength = a.length();
 //        int bLength = b.length();
