@@ -2,6 +2,8 @@ package com.xt.paixu;
 
 import com.xt.Solution;
 
+import java.util.Arrays;
+
 /**
  * 1:冒泡，选择，快速排序完成
  * 2:更新双轴快排
@@ -12,6 +14,7 @@ public class Paixu {
 
 
     public static void main(String[] args) {
+        Arrays.sort(ints);
         new DualPivotQuickSort().sort(ints);
         Solution.print(ints);
     }

@@ -44,7 +44,6 @@ public class Solution31 {
 
     public void nextPermutation(int[] nums) {
         Integer changeIndex = null;
-
         for (int i = nums.length - 1; i >= 1; i--) {
             if (nums[i] > nums[i - 1]) {
                 changeIndex = i - 1;

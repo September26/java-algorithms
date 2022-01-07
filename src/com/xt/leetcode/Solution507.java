@@ -39,6 +39,11 @@ import java.util.Vector;
  * <p>
  * <p>
  * 解题思路：
+ * 使用end来记录num的值，
+ * 把end这个数除以i=2，如果余数为0，就修改end为除以后的值并且继续除以2。
+ * 否则则尝试除以3判断余数。
+ * 这样继续除下去，直到i==end
+ * 每次运算记录sum值，最后比较一下sum值和num就好了。
  * <p>
  * <p>
  * state:done
@@ -50,7 +55,7 @@ public class Solution507 {
             return false;
         }
         int sum = 0;
-        int end = num;
+        int end = num;//
         int old = 1;
         for (int i = 2; i < end; ) {
             if (end % i == 0) {

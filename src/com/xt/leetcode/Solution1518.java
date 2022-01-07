@@ -26,22 +26,8 @@ import java.util.Vector;
  */
 public class Solution1518 {
 
-    /**
-     * 这是错误的
-     * @param numBottles
-     * @param numExchange
-     * @return
-     */
     public int numWaterBottles(int numBottles, int numExchange) {
-        //while循环解决
-        int sum = numBottles;
-        int emplyBottles = 0;
-        while ((numBottles + numBottles) >= numExchange) {
-            numBottles = (numBottles + emplyBottles) / numExchange;
-            emplyBottles = numBottles % numExchange;
-            sum += numBottles;
-        }
-        return sum;
+        return numWaterBottles(numBottles, 0, numExchange);
     }
 
     public int numWaterBottles(int numBottles, int emptyBottles, int numExchange) {

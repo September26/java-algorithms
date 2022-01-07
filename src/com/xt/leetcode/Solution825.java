@@ -60,7 +60,7 @@ public class Solution825 {
      * @param ages
      * @return
      */
-    public int numFriendRequests(int[] ages) {
+    public int numFriendRequests2(int[] ages) {
         ages = Arrays.stream(ages).boxed().sorted((a, b) -> b - a).mapToInt(p -> p).toArray();
         int xIndex = 0;
         int x;
@@ -157,37 +157,37 @@ public class Solution825 {
     /**
      * 解法1，最初方案，双重for循环
      */
-//    public int numFriendRequests(int[] ages) {
-//        ages = Arrays.stream(ages).boxed().sorted((a, b) -> b - a).mapToInt(p -> p).toArray();
-//        int xIndex = 0;
-//        int yIndex = 0;
-//        int x;
-//        int y;
-//        int num = 0;
-//        int yCompare = 0;
-//        int xStart = 0;
-//        Boolean isMoreThan100 = null;
-//        for (int i = 0; i < ages.length; i++) {
-//            xIndex = i;
-//            x = ages[xIndex];
-//            yCompare = x / 2 + 7;
-//            if (isMoreThan100 == null || isMoreThan100) {
-//                isMoreThan100 = x >= 100;
-//            }
-//            if (ages[xStart] != x) {
-//                xStart = i;
-//            }
-//            for (yIndex = xStart; yIndex < ages.length; yIndex++) {
-//                if (xIndex == yIndex) {
-//                    continue;
-//                }
-//                y = ages[yIndex];
-//                //这里可以根据具体的条件，进行二分法查找临界点
-//                if (y > yCompare && (isMoreThan100 || y <= 100)) {
-//                    num++;
-//                }
-//            }
-//        }
-//        return num;
-//    }
+    public int numFriendRequests(int[] ages) {
+        ages = Arrays.stream(ages).boxed().sorted((a, b) -> b - a).mapToInt(p -> p).toArray();
+        int xIndex = 0;
+        int yIndex = 0;
+        int x;
+        int y;
+        int num = 0;
+        int yCompare = 0;
+        int xStart = 0;
+        Boolean isMoreThan100 = null;
+        for (int i = 0; i < ages.length; i++) {
+            xIndex = i;
+            x = ages[xIndex];
+            yCompare = x / 2 + 7;
+            if (isMoreThan100 == null || isMoreThan100) {
+                isMoreThan100 = x >= 100;
+            }
+            if (ages[xStart] != x) {
+                xStart = i;
+            }
+            for (yIndex = xStart; yIndex < ages.length; yIndex++) {
+                if (xIndex == yIndex) {
+                    continue;
+                }
+                y = ages[yIndex];
+                //这里可以根据具体的条件，进行二分法查找临界点
+                if (y > yCompare && (isMoreThan100 || y <= 100)) {
+                    num++;
+                }
+            }
+        }
+        return num;
+    }
 }

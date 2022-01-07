@@ -32,8 +32,13 @@ import java.util.*;
  * <p>
  * 解题思路：
  * 本题的难点是()(()()这样的字符串，这样的字符串最大的长度是从第4位开始的。
- * 我们先看一下题目设定要求，字符串长度4W，说明这题至少是O(n*logn)的复杂度才行。我们就去找O(n)复杂度的解法
- * <p>
+ * 我们先看一下题目设定要求，字符串长度4W，说明这题至少是O(n*logn)的复杂度才行。我们就去找O(n)复杂度的解法。
+ * 这题我的思路是这样的，
+ * 首先构建一个栈结构，记录是第几层嵌套。
+ * 然后构建一个map，key为第几层结构，value为对应的起始点。
+ * 这样我们依次的去遍历字符串，如果读到"("则栈中增加一层，记录其位置。读到")"则栈做出栈处理，同时，记录一下其开始位置以及长度。
+ * 如果依次读到两个),两个结构的层级是相同的，那么这两个结构的长度就可以累加，不同层级则不能累加。
+ * 另外，如果结束了)的层级是第2层，那么大于2层的结构也需要被移除掉。
  * <p>
  * <p>
  * state:done
@@ -42,8 +47,8 @@ public class Solution32 {
     public int longestValidParentheses(String s) {
         int max = 0;
         char[] chars = s.toCharArray();
-        Map<Integer, Node> nodeMap = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
+        Map<Integer, Node> nodeMap = new HashMap<>();
         int index = 0;
         while (index < chars.length) {
             char aChar = chars[index];
