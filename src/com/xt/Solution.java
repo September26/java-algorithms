@@ -3,14 +3,6 @@ package com.xt;
 
 import com.xt.leetcode.*;
 import com.xt.model.ListNode;
-import com.xt.model.TreeNode;
-import com.xt.util.IOHelper;
-
-import java.io.File;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Stack;
 
 
 /**
@@ -21,8 +13,8 @@ public class Solution {
     public static void main(String[] args) {
         try {
 //            1708
-//            Solution35 solution = new Solution35();
-            Solution913 solution = new Solution913();
+//            Solution4 solution = new Solution4();
+            Solution373 solution = new Solution373();
 //            InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
 //            String s = IOHelper.readStrByCode(inputStream, "utf-8");
 //            String[] strings = s.split(",");
@@ -31,11 +23,14 @@ public class Solution {
 //                ints2[i] = 20000;
 //            }
             long l = System.currentTimeMillis();
-//            String[] strings = {"cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"};
-//            String str = "/a/./b/../../c/";
-            int[] ints = new int[]{1, 3, 5, 6};//预期0
-            int[][] intss = new int[][]{{2, 5}, {3}, {0, 4, 5}, {1, 4, 5}, {2, 3}, {0, 2, 3}};//预期0
-            Object object = solution.catMouseGame(intss);
+            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
+            int[] ints1 = new int[]{1,2};
+            int[] ints2 = new int[]{3};
+            int[][] intss = new int[][]{{0, 1}, {1, 0}};//预期0
+
+//            double middle = solution.getMiddleValue(ints1, 19);
+//            print(middle);
+            Object object = solution.kSmallestPairs(ints1, ints2, 3);
             print(object);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
 
@@ -46,7 +41,6 @@ public class Solution {
 //        int i = binarySearch(ints, 8);
 //        System.out.println(i);
     }
-
 
 
 //    //找到数组中比target更小的那个

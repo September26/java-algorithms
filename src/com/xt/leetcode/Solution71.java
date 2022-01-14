@@ -58,7 +58,6 @@ import java.util.Vector;
  * 如果word为“.“，则跳过；
  * 如果word为“..“，则stack.pop()
  * 如果word为其他字符串，则stack.add(word)
- * <p>
  * 遍历完了之后，使用栈来构建一个新的path。如果栈为空，则返回/即可
  * <p>
  * state:done

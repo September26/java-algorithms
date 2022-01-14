@@ -3,18 +3,12 @@ package com.xt.leetcode;
 import java.util.Vector;
 
 /**
- * 0.Demo描述
+ * 0.名称
+ * 描述
+ *
  * 解题思路：
- * <p>
- * 1-10:    4
- * 71
- * 472
- * 825
- * 846
- * 913
- * 1518
- * 2022
- * <p>
+ *
+ *
  * state:
  */
 public class Solution0 {

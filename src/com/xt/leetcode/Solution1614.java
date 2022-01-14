@@ -56,7 +56,7 @@ import java.util.Vector;
  * 运用栈的思想，读到"("栈的层级+1，读到")"则统计栈的长度是否超过最大值，然后栈-1。
  * 其实不用栈，直接用一个int来计数也可以，因为这题不要求得到对应的位置，这样效率会更高一些。
  * <p>
- * state:
+ * state:done
  */
 public class Solution1614 {
 
