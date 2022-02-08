@@ -3,7 +3,7 @@ package com.xt.leetcode;
 import java.util.Vector;
 
 /**
- * 0.名称
+ * 1688.比赛中的配对次数
  * 描述
  *
  * 解题思路：

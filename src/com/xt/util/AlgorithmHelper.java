@@ -1,9 +1,42 @@
 package com.xt.util;
 
+import com.xt.leetcode.Solution2034;
+
+import java.util.List;
+
 /**
  * 算法helper
  */
 public class AlgorithmHelper {
+
+
+    //二分查找插入法
+    public static void middleInsert(List<Integer> list, int value) {
+        if (list.size() == 0) {
+            list.add(value);
+            return;
+        }
+        int start = 0;
+        int end = list.size() - 1;
+        while (start < end) {
+            int middle = (start + end) / 2;
+            int middleValue = list.get(middle);
+            if (value > middleValue) {
+                start = middle + 1;
+                continue;
+            }
+            if (value < middleValue) {
+                end = middle;
+                continue;
+            }
+        }
+        list.add(start, value);
+    }
+
+    //取模运算
+    public static double ramainder(int dividend, int dividor) {
+        return dividend - dividend / dividor * dividor;
+    }
 
     public static int binarySearchForIndex(int[] array, int target) throws Exception {
         return binarySearchForIndex(array, target, 0, array.length - 1, false);

@@ -37,9 +37,11 @@ package com.xt.leetcode;
  * 链接：https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * 解题思路：
+ * 用两个数来记录，分别记录最大的数和第二大的数即可。
+ * 如果第一大的是第二大的数的两倍的话，那么一定是满足条件的
  * <p>
  * <p>
- * state:
+ * state:done
  */
 public class Solution747 {
 

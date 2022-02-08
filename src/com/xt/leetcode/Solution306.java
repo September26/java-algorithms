@@ -36,6 +36,8 @@ import java.util.Vector;
  * 链接：https://leetcode-cn.com/problems/additive-number
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * 解题思路：
+ * 这题的难点就是不断的累加造成的int或者long类型溢出问题。
+ * 所以我的解决方案就是写一个方法，计算两个string类型的数字相加的结果
  * <p>
  * state:done
  */
@@ -74,7 +76,7 @@ public class Solution306 {
     }
 
     /**
-     * 计算两个数字想加
+     * 计算两个数字相加
      *
      * @param s1
      * @param s2

@@ -3,6 +3,12 @@ package com.xt;
 
 import com.xt.leetcode.*;
 import com.xt.model.ListNode;
+import com.xt.util.AlgorithmHelper;
+import com.xt.util.IOHelper;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -13,25 +19,27 @@ public class Solution {
     public static void main(String[] args) {
         try {
 //            1708
-//            Solution4 solution = new Solution4();
-            Solution373 solution = new Solution373();
-//            InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
-//            String s = IOHelper.readStrByCode(inputStream, "utf-8");
-//            String[] strings = s.split(",");
-//            for (int i = 0; i < ints1.length; i++) {
-//                ints1[i] = 20000;
-//                ints2[i] = 20000;
-//            }
-            long l = System.currentTimeMillis();
-            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
-            int[] ints1 = new int[]{1,2};
-            int[] ints2 = new int[]{3};
-            int[][] intss = new int[][]{{0, 1}, {1, 0}};//预期0
+            Solution1996 solution = new Solution1996();
 
-//            double middle = solution.getMiddleValue(ints1, 19);
-//            print(middle);
-            Object object = solution.kSmallestPairs(ints1, ints2, 3);
+//            [1,3,5,6]2
+//            [1,3,5]1
+            int[] ints1 = new int[]{1, 3, 5, 6};//[1,3,5]1
+            ints1[0]++;
+
+            int[] ints2 = new int[]{2, 4, 6, 8};
+            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
+//            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
+            int[][] intss = getValues();
+//            ints1 = getValue();
+
+//            Object object = solution.add();
+            long l = System.currentTimeMillis();
+
+            //预期30
+            Object object = solution.numberOfWeakCharacters(intss);// 3142
+//            Object object = solution.countValidWords("aa-!");// 3142
             print(object);
+
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
 
         } catch (Exception e) {
@@ -42,24 +50,40 @@ public class Solution {
 //        System.out.println(i);
     }
 
+    private static int[] getValue() throws IOException {
+        InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
+        String s = IOHelper.readStrByCode(inputStream, "utf-8");
+        String[] strings = s.split(",");
+        int[] ints1 = new int[strings.length];
+        for (int i = 0; i < ints1.length; i++) {
+            ints1[i] = Integer.parseInt(strings[i].trim());
+        }
+        return ints1;
+    }
 
-//    //找到数组中比target更小的那个
-//    public static int binarySearch(int[] nums, int target) {
-//        int left = 0, right = nums.length - 1;
-//        int ans = 0;
-//        int middle = 0;
-//        do {
-//            middle = (left + right) / 2;
-//            int value = nums[middle];
-//            if (value > target) {
-//                ans = middle;
-//                right = middle;
-//                continue;
-//            }
-//            left = middle;
-//        } while ((right - left) > 1);
-//        return ans;
-//    }
+    private static int[][] getValues() throws IOException {
+        InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
+        String s = IOHelper.readStrByCode(inputStream, "utf-8");
+        s = s.substring(1, s.length() - 1);
+        String[] strings = s.split("],");
+        int[][] intss = new int[strings.length][];
+        for (int i = 0; i < intss.length; i++) {
+            String item = strings[i];
+            String s1 = item.trim().replaceAll("\\[", "").replaceAll("\\]", "");
+            String[] split = s1.split(",");
+            int[] ints = new int[split.length];
+            for (int j = 0; j < split.length; j++) {
+                try {
+                    ints[j] = Integer.parseInt(split[j].trim());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+            intss[i] = ints;
+        }
+        return intss;
+    }
 
     /**
      * 输出结果
