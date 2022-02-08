@@ -9,6 +9,8 @@ import com.xt.util.IOHelper;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -19,15 +21,12 @@ public class Solution {
     public static void main(String[] args) {
         try {
 //            1708
-            Solution1996 solution = new Solution1996();
 
-//            [1,3,5,6]2
-//            [1,3,5]1
-            int[] ints1 = new int[]{1, 3, 5, 6};//[1,3,5]1
-            ints1[0]++;
+            Solution1748 solution = new Solution1748();
 
-            int[] ints2 = new int[]{2, 4, 6, 8};
-            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
+            int[] ints1 = new int[]{1, 2, 3, 4, 5};
+//            int[] ints2 = new int[]{2, 4, 6, 8};
+//            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
             int[][] intss = getValues();
 //            ints1 = getValue();
@@ -36,11 +35,12 @@ public class Solution {
             long l = System.currentTimeMillis();
 
             //预期30
-            Object object = solution.numberOfWeakCharacters(intss);// 3142
+//            "aabbbcccaab"
+//            "aabbccaabbc"
+            Object object = solution.sumOfUnique(ints1);
 //            Object object = solution.countValidWords("aa-!");// 3142
-            print(object);
-
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
+            print(object);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,5 +125,4 @@ public class Solution {
         }
         System.out.println(obejct);
     }
-
 }
