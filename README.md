@@ -8,7 +8,8 @@
 首页86题已完成
 
 ### leetCode(力扣)进度
-已完成1到20题（其中4，10题未完成，还在进行中）。
+已完成80多题，动态更新进度如下：
+https://blog.csdn.net/rzleilei/article/details/121477931
 
 ## 项目结构介绍
 
