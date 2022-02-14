@@ -22,9 +22,9 @@ public class Solution {
         try {
 //            1708
 
-            Solution1765 solution = new Solution1765();
+            Solution1020 solution = new Solution1020();
 
-            int[] ints1 = new int[]{3, 2, 1, 5, 4};
+            int[] ints1 = new int[]{1, 1, 3, 3, 4, 4, 8, 8, 9};
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
@@ -37,7 +37,7 @@ public class Solution {
             //预期30
 //            "aabbbcccaab"
 //            "aabbccaabbc"
-            Object object = solution.highestPeak(intss);
+            Object object = solution.numEnclaves(intss);
 //            Object object = solution.longestNiceSubstring("YazaAay");
 //            Object object = solution.countValidWords("aa-!");// 3142
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
