@@ -52,6 +52,7 @@ package com.xt.leetcode;
  * 链接：https://leetcode-cn.com/problems/slowest-key
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * 解题思路：
+ * 分别设置变量记录最长的时间和所对应的字符。然后遍历，如果时间大于最长时间则更新。
  * <p>
  * <p>
  * state:done
