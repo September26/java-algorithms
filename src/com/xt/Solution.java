@@ -22,7 +22,7 @@ public class Solution {
         try {
 //            1708
 
-            Solution1020 solution = new Solution1020();
+            Solution1380 solution = new Solution1380();
 
             int[] ints1 = new int[]{1, 1, 3, 3, 4, 4, 8, 8, 9};
 //            int[] ints2 = new int[]{2, 4, 6, 8};
@@ -37,7 +37,7 @@ public class Solution {
             //预期30
 //            "aabbbcccaab"
 //            "aabbccaabbc"
-            Object object = solution.numEnclaves(intss);
+            Object object = solution.luckyNumbers(intss);
 //            Object object = solution.longestNiceSubstring("YazaAay");
 //            Object object = solution.countValidWords("aa-!");// 3142
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
