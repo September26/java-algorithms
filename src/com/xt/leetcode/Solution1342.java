@@ -48,7 +48,7 @@ import java.util.Vector;
  * 没什么可说的，按照题目要求实现即可。
  * <p>
  * <p>
- * state:
+ * state:done
  */
 public class Solution1342 {
 

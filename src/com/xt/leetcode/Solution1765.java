@@ -32,7 +32,7 @@ import java.util.Vector;
  * 继续遍历新的集合，直到新集合长度为0。
  * <p>
  * <p>
- * state:
+ * state:done
  */
 public class Solution1765 {
     public int[][] highestPeak(int[][] isWater) {

@@ -42,7 +42,7 @@ import java.util.Vector;
  * 比较简单，根据题目描述，只要求出所有单词出现次数为1的单词即可。所有构建一个map，key为单词，value为出现的次数，遍历两个字符串。
  * <p>
  * <p>
- * state:
+ * state:done
  */
 public class Solution884 {
 

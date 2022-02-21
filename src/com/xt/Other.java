@@ -17,6 +17,10 @@ public class Other {
         int i = strings.indexOf("3");
         System.out.println(i);
 
+
+
+
+
     }
 
 
