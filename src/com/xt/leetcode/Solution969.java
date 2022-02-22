@@ -1,5 +1,7 @@
 package com.xt.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -50,15 +52,54 @@ import java.util.List;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
  * 解题思路：
- * <p>
- * <p>
- * state:
+ * 先对数组拷贝，然后排序。这样队尾的一定是最大的数。
+ * 我们可以按照这样的顺序来排序，每次排序，把最大的那个排到队尾。这样经过N轮排序，就是一个有序的数组了。
+ * 接下来就是如何把一个数排到队尾了，比如4,3,6,5,1,2。我们可以通过两次煎饼排序把6排到队尾。
+ * 首先把6排到最前面：6,3,4,5,1,2
+ * 然后把6排到最后面：2,1,5,4,3,6
+ *
+ * state:done
  */
 public class Solution969 {
 
     public List<Integer> pancakeSort(int[] arr) {
+        //最大值放到尾部的方案
+        List<Integer> list = new ArrayList<>();
+        int[] copy = new int[arr.length];
+        System.arraycopy(arr, 0, copy, 0, arr.length);
+        Arrays.sort(copy);
 
+        for (int i = copy.length - 1; i >= 0; i--) {
+            int max = copy[i];
+            for (int k = 0; k <= i; k++) {
+                int value = arr[k];
+                if (max != value) {
+                    continue;
+                }
+                if (k == i) {
+                    break;
+                }
+                reverseInts(arr, k);
+                list.add(k + 1);
+                reverseInts(arr, i);
+                list.add(i + 1);
+                //改变数组
+                break;
+            }
+        }
+        return list;
+    }
 
-        return null;
+    private void reverseInts(int[] ints, int k) {
+        int start = 0;
+        int end = k;
+        while (end > start) {
+            int local = ints[start];
+            ints[start] = ints[end];
+            ints[end] = local;
+            end--;
+            start++;
+
+        }
     }
 }

@@ -22,9 +22,9 @@ public class Solution {
         try {
 //            1708
 
-            Solution717 solution = new Solution717();
+            Solution969 solution = new Solution969();
 
-            int[] ints1 = new int[]{0,1, 0};
+            int[] ints1 = new int[]{4, 3, 6, 5, 1, 2};
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
@@ -37,7 +37,7 @@ public class Solution {
             //预期30
 //            "aabbbcccaab"
 //            "aabbccaabbc"
-            Object object = solution.isOneBitCharacter(ints1);
+            Object object = solution.pancakeSort(ints1);
 //            Object object = solution.longestNiceSubstring("YazaAay");
 //            Object object = solution.countValidWords("aa-!");// 3142
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));

@@ -55,11 +55,15 @@ import java.util.*;
  * 链接：https://leetcode-cn.com/problems/stock-price-fluctuation
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * 解题思路：
+ * 1.构建一个Node节点来存储对应的信息，一个Node代表唯一的价格，一个价格可能有N多次，由num来记录。
+ * 2.然后一个timesMap来记录这个时间点的价格是否出现过。
+ * 3.如果没有出现过，则走流程5。
+ * 4.如果出现过，则先减掉老price对应的节点的数量，然后走流程5
+ * 5.根据当前价格查询查询priceMap是否存在，如果不存在则添加节点，并且num=1。如果存在则num++。
+ *
  * <p>
- * 寻找O(n)的解法
  * <p>
- * <p>
- * state:
+ * state:done
  */
 public class Solution2034 {
 
@@ -67,8 +71,6 @@ public class Solution2034 {
     public static class StockPrice {
 
         Map<Integer, Integer> timesMap = new HashMap<>();//价格是否存在
-
-
         Map<Integer, Node> priceMap = new HashMap<>();//key:价格，value:节点Node
         List<Node> priceList = new ArrayList<>();//按照金额排序。价格不会有重复
         int current = 0;
