@@ -21,10 +21,11 @@ public class Solution {
     public static void main(String[] args) {
         try {
 //            1708
+//            Other other = new Other();
 
-            Solution969 solution = new Solution969();
+            Solution1706 solution = new Solution1706();
 
-            int[] ints1 = new int[]{4, 3, 6, 5, 1, 2};
+            int[] ints1 = new int[]{18, 28, 2, 17, 29, 30, 15, 9, 12};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
@@ -37,7 +38,7 @@ public class Solution {
             //预期30
 //            "aabbbcccaab"
 //            "aabbccaabbc"
-            Object object = solution.pancakeSort(ints1);
+            Object object = solution.findBall(intss);
 //            Object object = solution.longestNiceSubstring("YazaAay");
 //            Object object = solution.countValidWords("aa-!");// 3142
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
@@ -125,5 +126,17 @@ public class Solution {
             return;
         }
         System.out.println(obejct);
+    }
+
+    class A {
+        public void test() {
+
+        }
+    }
+
+    class B extends A {
+        public void test() {
+
+        }
     }
 }

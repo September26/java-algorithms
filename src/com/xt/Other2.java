@@ -3,11 +3,14 @@ package com.xt;
 
 import java.util.Vector;
 
-public class Other extends Other2{
+public class Other2 {
 
-    public Other(){
-//        super("a");
-        System.out.println("Other");
+    public Other2() {
+        System.out.println("Other2");
+    }
+
+    public Other2(String a) {
+        System.out.println("Other2"+a);
     }
 
     public static void main(String[] args) {
@@ -23,12 +26,7 @@ public class Other extends Other2{
         System.out.println(i);
 
 
-
-
-
     }
-
-
 
 
 }
