@@ -13,6 +13,14 @@ public class Other2 {
         System.out.println("Other2"+a);
     }
 
+    static {
+        System.out.println("static code");
+    }
+
+    {
+        System.out.println("un static code");
+    }
+
     public static void main(String[] args) {
 
 

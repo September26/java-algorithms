@@ -55,6 +55,7 @@ public class Solution688 {
 
     static int[][] dirs = {{-2, -1}, {-2, 1}, {2, -1}, {2, 1}, {-1, -2}, {-1, 2}, {1, -2}, {1, 2}};
 
+    //dp题
     public double knightProbability(int n, int k, int row, int column) {
         double[][][] dp = new double[k + 1][n][n];
         for (int step = 0; step <= k; step++) {

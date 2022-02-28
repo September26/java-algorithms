@@ -3,7 +3,7 @@ package com.xt;
 
 import java.util.Vector;
 
-public class Other extends Other2{
+public class Other{
 
     public Other(){
 //        super("a");
