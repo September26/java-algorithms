@@ -23,11 +23,27 @@ public class Solution {
 //            1708
 //            Other other = new Other();
 //            Class<?> aClass = Class.forName("com.xt.Other2");
+//            Bianchengti test = new Bianchengti();
+//            Bianchengti.Coordinate a = new Bianchengti.Coordinate();
+//            Bianchengti.Coordinate b = new Bianchengti.Coordinate();
+//            Bianchengti.Coordinate p = new Bianchengti.Coordinate();
+//
+//            a.longitude = 50;
+//            a.latitude = 10;
+//
+//            b.longitude = 40;
+//            b.latitude = -10;
+//
+//            p.longitude = 60;
+//            p.latitude = 0;
 
 
-            Solution18 solution = new Solution18();
+//            boolean inside = test.isInside(a, b, p);
+//            System.out.println(inside);
 
-            int[] ints1 = new int[]{2,2,2,2,2};//预期19
+            Solution2100 solution = new Solution2100();
+
+            int[] ints1 = new int[]{5, 3, 3, 3, 5, 6, 2};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
@@ -37,12 +53,7 @@ public class Solution {
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 
-            //预期30
-//            "aabbbcccaab"
-//            "aabbccaabbc"
-            Object object = solution.fourSum(ints1, 8);
-//            Object object = solution.longestNiceSubstring("YazaAay");
-//            Object object = solution.countValidWords("aa-!");// 3142
+            Object object = solution.goodDaysToRobBank(ints1, 2);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
