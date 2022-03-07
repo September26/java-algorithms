@@ -41,7 +41,7 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution2100 solution = new Solution2100();
+            Solution504 solution = new Solution504();
 
             int[] ints1 = new int[]{5, 3, 3, 3, 5, 6, 2};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
@@ -53,7 +53,7 @@ public class Solution {
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 
-            Object object = solution.goodDaysToRobBank(ints1, 2);
+            Object object = solution.convertToBase7(-8);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
