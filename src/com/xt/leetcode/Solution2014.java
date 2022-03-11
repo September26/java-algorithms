@@ -65,7 +65,7 @@ import java.util.Vector;
  * 官方的题解O(n)的感觉像一道数据题了，确实做不出来。
  * <p>
  * <p>
- * state:done
+ * state:
  */
 public class Solution2014 {
 

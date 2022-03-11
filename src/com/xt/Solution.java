@@ -3,12 +3,16 @@ package com.xt;
 
 import com.xt.leetcode.*;
 import com.xt.model.ListNode;
+import com.xt.model.Node;
 import com.xt.util.AlgorithmHelper;
 import com.xt.util.IOHelper;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,19 +45,20 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution504 solution = new Solution504();
+            Solution2049 solution = new Solution2049();
 
-            int[] ints1 = new int[]{5, 3, 3, 3, 5, 6, 2};//预期19
+            int[] ints1 = new int[]{1};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
-            int[][] intss = getValues();
-//            ints1 = getValue();
+//            int[][] intss = getValues();
+            ints1 = getValue();
 
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
+//            int search = solution.search(integers, 5, true);
 
-            Object object = solution.convertToBase7(-8);
+            Object object = solution.countHighestScoreNodes(ints1);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
@@ -121,10 +126,14 @@ public class Solution {
         if (obejct instanceof int[]) {
             StringBuilder builder = new StringBuilder();
             int[] integers = (int[]) obejct;
+            builder.append('[');
             for (int i = 0; i < integers.length; i++) {
                 builder.append(integers[i]);
-                builder.append(',');
+                if (i < integers.length - 1) {
+                    builder.append(',');
+                }
             }
+            builder.append(']');
             System.out.print(builder.toString());
             return;
         }

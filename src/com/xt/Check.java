@@ -14,9 +14,14 @@ public class Check {
         Set<String> articleSet = getArticleSet();
         Set<String> javaSet = getJavaSet();
         List<Integer> list = new ArrayList<>();
+        int num = 0;
         for (String str : javaSet) {
             if (articleSet.contains(str)) {
                 continue;
+            }
+            num++;
+            if (str.endsWith("gti")) {
+                System.out.println("");
             }
             list.add(Integer.parseInt(str));
         }
@@ -31,13 +36,15 @@ public class Check {
         File leetcode = new File("src/com/xt/leetcode");
         for (File javaFile : leetcode.listFiles()) {
             String name = javaFile.getName();
+            if (!name.startsWith("Solution")) {
+                continue;
+            }
             String id = name.substring(8, name.length() - 5);
             set.add(id);
         }
         return set;
     }
 
-    //​力扣解法汇总
 //力扣解法汇总
     private static Set<String> getArticleSet() {
         Set<String> set = new HashSet<>();

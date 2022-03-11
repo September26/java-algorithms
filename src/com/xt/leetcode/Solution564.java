@@ -39,61 +39,77 @@ import java.util.Vector;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
  * 解题思路：
+ * 穷举所有可能性，共有8种情况。把这8种情况的值全部算出来放到集合中，遍历集合求最合适的数字。
+ * 第1种：123,12+1，最接近的为121。
+ * 第2种：1234,12+21，最接近的为1221。
+ * 第3种：11011，109+01，最接近为10901。
+ * 第4种：110011，109+901，最接近为109901。
+ * 第5种：111,最接近为101
+ * 第6种：1111,最接近为1001
+ * 第7种：100,最接近的应该为99。则10^3-1
+ * 第8种：999,最接近的为1001，则10^3+1
  * <p>
  * <p>
- * state:
+ * state:done
  */
 public class Solution564 {
 
     public String nearestPalindromic(String n) {
         long origin = Long.parseLong(n);
         List<Long> list = getList(n);
-
-        long min = 0L;
         long currentValue = 0L;
+        long minChange = Long.MAX_VALUE;
         for (Long l : list) {
-            long currentChange = Math.abs(l - origin);
-            if (currentChange < min) {
-                currentValue = l;
+            if (l == origin) {
+                continue;
             }
-            if (currentChange == min && l < currentValue) {
+            long abs = Math.abs(origin - l);
+            if (abs < minChange) {
+                currentValue = l;
+                minChange = abs;
+            }
+            if (abs == minChange && l < currentValue) {
                 currentValue = l;
             }
         }
         return Long.toString(currentValue);
     }
 
-    private List<Long> getList(String n) {
-        int len = n.length();
-        List<Long> candidates = new ArrayList<Long>() {{
-            add((long) Math.pow(10, len - 1) - 1);
-            add((long) Math.pow(10, len) + 1);
-        }};
-        long selfPrefix = Long.parseLong(n.substring(0, (len + 1) / 2));
-        for (long i = selfPrefix - 1; i <= selfPrefix + 1; i++) {
-            StringBuffer sb = new StringBuffer();
-            String prefix = String.valueOf(i);
-            sb.append(prefix);
-            StringBuffer suffix = new StringBuffer(prefix).reverse();
-            sb.append(suffix.substring(len & 1));
-            String candidate = sb.toString();
-            candidates.add(Long.parseLong(candidate));
-        }
+    public List<Long> getList(String n) {
+        List<Long> candidates = new ArrayList<>();
+
+
+        int middle = n.length() / 2;
+
+        long left = Long.parseLong(n.substring(0, (n.length() % 2 == 0) ? middle : middle + 1));
+
+        candidates.add(buildNum(left, true));//123->121
+        candidates.add(buildNum(left, false));//123->1221
+//        candidates.add(buildNum(left + 1, true));
+//        candidates.add(buildNum(left + 1, false));
+        candidates.add(buildNum(left - 1, true));
+        candidates.add(buildNum(left - 1, false));
+
+
+        //比如100到999之间范围的数字，就加上99
+        double pow = Math.pow(10, n.length() - 1);
+        candidates.add((long) pow - 1);//解决100的情况，
+        candidates.add((long) pow * 10 + 1);//解决999的情况。这种情况直接1000+1
+
         return candidates;
     }
 
-
-    public boolean isPalindromic(char[] chars) {
-        int start = 0;
-        int end = chars.length - 1;
-        while (start < end) {
-            if (chars[start] != chars[end]) {
-                return false;
-            }
-            start++;
-            end--;
+    private Long buildNum(long left, boolean flag) {
+        StringBuilder builder = new StringBuilder();
+        //镜面数字
+        builder.append(left);
+        if (flag) {
+            builder.setLength(builder.length() - 1);
         }
-        return true;
+        builder.reverse();
+        builder.insert(0, left);
+        return Long.parseLong(builder.toString());
     }
+
 
 }

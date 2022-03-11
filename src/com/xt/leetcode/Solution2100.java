@@ -3,7 +3,7 @@ package com.xt.leetcode;
 import java.util.*;
 
 /**
- * 1688.比赛中的配对次数
+ * 2100. 适合打劫银行的日子
  * 每日一题：2022.03.06
  * 完成日期：2022.03.06
  * 链接：https://leetcode-cn.com/problems/find-good-days-to-rob-the-bank/
@@ -49,7 +49,7 @@ import java.util.*;
  * 解释：
  * 没有日子前面和后面有 5 天时间。
  * 所以没有适合打劫银行的日子，返回空数组。
- *  
+ *
  * <p>
  * 提示：
  * <p>
@@ -61,51 +61,43 @@ import java.util.*;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
  * 解题思路：
+ * 这题的长度是10^5，那么时间复杂度一定是O(n)，最高O(n*lngN)级别
+ * 我们可以使用动态区间的方案。设置两个区间，left区间和right区间，长度为time。
+ * left区间从0开始，right区间从time开始。
+ * left区间中，如果新读取的数字，比上一个数字小于等于，则leftNum，表示连续递减的区间数量+1。反之则清0。
+ * right区间原理类似。
+ * 这样我们就可以求得leftNum和rightNum，分别代表左右区间连续的数量。如果数量大于等于time，则加入到list当中。
+ * 当然，其实rightNum记录的并不仅仅是index右侧的连续区间数量，不过这对结果没有影响，就不去处理了。
  * <p>
  * <p>
- * state:
+ * state:done
  */
 public class Solution2100 {
 
     public List<Integer> goodDaysToRobBank(int[] security, int time) {
         ArrayList<Integer> list = new ArrayList<>();
-        if (time == 0) {
-            for (int i : security) {
-                list.add(i);
+
+        int index = 0;
+        int leftNum = 0;//单调递减
+        int rightNum = 0;//单调递增
+        while (index + time < security.length) {
+            if (index > 0) {
+                if (security[index] <= security[index - 1]) {
+                    leftNum++;
+                } else {
+                    leftNum = 0;
+                }
+                if (security[index + time] >= security[index + time - 1]) {
+                    rightNum++;
+                } else {
+                    rightNum = 0;
+                }
             }
-            return list;
+            if (leftNum >= time && rightNum >= time) {
+                list.add(index);
+            }
+            index++;
         }
-
-        int leftNum = 0;
-        int rightNum = 0;
-        int index = 1;
-        int left = 1;
-        int right = 1;
-
-        while (right < security.length) {
-            int oldValueLeft = security[left - 1];
-            int currValueLeft = security[left];
-            if (oldValueLeft >= currValueLeft) {
-                leftNum++;
-            } else {
-                leftNum = 0;
-            }
-            left++;
-
-
-            int rightValue1 = security[right - 1];
-            int rightValue2 = security[right];
-            int rightValue3 = security[right];
-            if (rightValue1 <= rightValue2) {
-                rightNum++;
-            } else {
-                rightNum--;
-            }
-            right += 2;
-
-            System.out.println("");
-        }
-
         return list;
     }
 }
