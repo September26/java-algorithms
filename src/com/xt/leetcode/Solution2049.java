@@ -56,6 +56,13 @@ import java.util.Map;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
  * 解题思路：
+ * 这题长度10^5，那么时间复杂度一定不能超过O(NlgN)，目标还是往O(N)靠拢。
+ * 我的想法是构建一个一个的Node节点，每个节点包含left,right,parent的id，以及leftNum和rightNum的数量。
+ * 第一步，我们构建所有的节点，用map记录。方便根据id查找该节点。
+ * 第二步，我们遍历数组，根据parent分别给parentNode的left和right赋值，以及给node节点的parent赋值。
+ * 第三步，从根节点开始递归遍历，找到left的节点数量leftNum,right的节点数量rightNum.如果某个节点的leftNum>0，则证明计算过，无需重复计算。其实应该也不会出现重复计算的场景，毕竟是从上向下有序的。
+ * 第四步，再次遍历数组。获取对应的node节点。因为我们有其leftNum,rightNum，则可以计算出parentNum。则value=leftNum*rightNum*parentNum;
+ * 第五步，如果value>maxvalue，则maxvaluenum=1。如果value==maxvalue，则maxvaluenum++。最终返回maxvaluenum即可
  * <p>
  * <p>
  * state:
