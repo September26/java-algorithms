@@ -45,20 +45,24 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution2049 solution = new Solution2049();
+            Solution393 solution = new Solution393();
 
-            int[] ints1 = new int[]{1};//预期19
+            int[] ints1 = new int[]{145};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
+
+            String[] str1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
+            String[] str2 = new String[]{"KFC", "Burger King", "Tapioca Express", "Shogun"};
+
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
 //            int[][] intss = getValues();
-            ints1 = getValue();
+//            ints1 = getValue();
 
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
 
-            Object object = solution.countHighestScoreNodes(ints1);
+            Object object = solution.validUtf8(ints1);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
