@@ -45,7 +45,7 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution393 solution = new Solution393();
+            Solution432.AllOne solution = new Solution432.AllOne();
 
             int[] ints1 = new int[]{145};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
@@ -61,10 +61,20 @@ public class Solution {
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
-
-            Object object = solution.validUtf8(ints1);
+            solution.inc("a");
+            solution.inc("b");
+            solution.inc("b");
+            solution.inc("c");
+            solution.inc("c");
+            solution.inc("c");
+            solution.dec("b");
+            solution.dec("b");
+            System.out.println(solution.getMinKey());
+            solution.dec("a");
+            System.out.println(solution.getMaxKey());
+            System.out.println(solution.getMinKey());
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
-            print(object);
+//            print(object);
 
         } catch (Exception e) {
             e.printStackTrace();
