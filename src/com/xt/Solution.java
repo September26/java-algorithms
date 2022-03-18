@@ -45,12 +45,12 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution432.AllOne solution = new Solution432.AllOne();
+            Solution2043.Bank solution = new Solution2043.Bank(new long[]{10, 100, 20, 50, 30});
 
-            int[] ints1 = new int[]{145};//预期19
+            int[] ints1 = new int[]{3, 2, 1, 5};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 
-            String[] str1 = new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"};
+            String[] str1 = new String[]{"ts", "e", "x", "pbhj", "opto", "xhigy", "erikz", "pbh", "opt", "erikzb", "eri", "erik", "xlye", "xhig", "optoj", "optoje", "xly", "pb", "xhi", "x", "o"};
             String[] str2 = new String[]{"KFC", "Burger King", "Tapioca Express", "Shogun"};
 
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
@@ -61,20 +61,10 @@ public class Solution {
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
-            solution.inc("a");
-            solution.inc("b");
-            solution.inc("b");
-            solution.inc("c");
-            solution.inc("c");
-            solution.inc("c");
-            solution.dec("b");
-            solution.dec("b");
-            System.out.println(solution.getMinKey());
-            solution.dec("a");
-            System.out.println(solution.getMaxKey());
-            System.out.println(solution.getMinKey());
+
+            Object object = solution.withdraw(3, 10);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
-//            print(object);
+            print(object);
 
         } catch (Exception e) {
             e.printStackTrace();

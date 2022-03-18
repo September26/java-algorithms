@@ -39,13 +39,16 @@ import java.util.Vector;
  * 提示：
  * <p>
  * 1 <= k <= nums.length <= 1000
- * 0 <= nums[i] <= 105
+ * 0 <= nums[i] <= 10^5
  * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * <p>
  * 解题思路：
+ * 先对数组进行排序，则最小值一定在前面，最大值一定在最后。
+ * 然后开始遍历，遍历i时，同时求i+k-1的值，求出差值。
+ * 遍历完成，求出最小差值即可
  * <p>
  * <p>
  * state:
