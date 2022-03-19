@@ -45,7 +45,8 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution2043.Bank solution = new Solution2043.Bank(new long[]{10, 100, 20, 50, 30});
+            Solution606 solution = new Solution606();
+
 
             int[] ints1 = new int[]{3, 2, 1, 5};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
@@ -62,7 +63,7 @@ public class Solution {
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
 
-            Object object = solution.withdraw(3, 10);
+            Object object = solution.tree2str(null);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
