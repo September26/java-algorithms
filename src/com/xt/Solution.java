@@ -45,7 +45,7 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution2039 solution = new Solution2039();
+            Solution2038 solution = new Solution2038();
 
 
             int[] ints1 = new int[]{0, 3, 3};//预期19
@@ -63,7 +63,7 @@ public class Solution {
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
 
-            Object object = solution.networkBecomesIdle(intss, ints1);
+            Object object = solution.winnerOfGame("AAAABBBB");
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
