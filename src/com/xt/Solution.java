@@ -45,25 +45,24 @@ public class Solution {
 //            boolean inside = test.isInside(a, b, p);
 //            System.out.println(inside);
 
-            Solution2038 solution = new Solution2038();
+            Solution2024 solution = new Solution2024();
 
 
-            int[] ints1 = new int[]{0, 3, 3};//预期19
+            int[] ints1 = new int[]{6, 1, 5, 2};//预期19
 //            int[] ints2 = new int[]{2, 4, 6, 8};
 
-            String[] str1 = new String[]{"ts", "e", "x", "pbhj", "opto", "xhigy", "erikz", "pbh", "opt", "erikzb", "eri", "erik", "xlye", "xhig", "optoj", "optoje", "xly", "pb", "xhi", "x", "o"};
+            String[] str1 = new String[]{"5", "2", "C", "D", "+"};
             String[] str2 = new String[]{"KFC", "Burger King", "Tapioca Express", "Shogun"};
 
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
-            int[][] intss = getValues();
+//            int[][] intss = getValues();
 //            ints1 = getValue();
 
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
-
-            Object object = solution.winnerOfGame("AAAABBBB");
+            Object object = solution.maxConsecutiveAnswers("FFFTTFTTFT", 3);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
 
