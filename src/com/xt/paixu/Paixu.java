@@ -132,7 +132,6 @@ public class Paixu {
             int leftIndex = startIndex;
             int rightIndex = endIndex;
             boolean isRight = true;
-
             while (rightIndex >= leftIndex) {
                 if (isRight) {
                     if (ints[compareIndex] > ints[rightIndex]) {
@@ -158,10 +157,6 @@ public class Paixu {
                 }
                 leftIndex++;
             }
-            for (int i = startIndex; i < endIndex + 1; i++) {
-                System.out.print(ints[i] + ",");
-            }
-            System.out.println();
             if ((compareIndex - startIndex) > 1) {
                 sort(ints, startIndex, compareIndex - 1);
             }

@@ -19,7 +19,7 @@ public class MakeCode {
         MakeCode makeCode = new MakeCode();
 
         //生成二叉树代码
-        String str = "{11,8,6,1,3,9,11,30,20,18,16,12,10,4,2,17}";
+        String str = "{1,3,2,5,3,null,9}";
         makeCode.makeTreeNode(str);
 
 

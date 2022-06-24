@@ -77,4 +77,11 @@ public class Solution4 {
         return (m + n) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
     }
 
+    static int i = 0;
+
+//    @Override
+//    public int hashCode() {
+//        return (int) (Math.random()*10);
+//    }
+
 }

@@ -4,15 +4,16 @@ package com.xt;
 import com.xt.leetcode.*;
 import com.xt.model.ListNode;
 import com.xt.model.Node;
+import com.xt.model.TreeNode;
+import com.xt.mst.SolutionMST1711;
 import com.xt.util.AlgorithmHelper;
 import com.xt.util.IOHelper;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.CountDownLatch;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,54 +25,58 @@ public class Solution {
 
     public static void main(String[] args) {
         try {
-//            1708
-//            Other other = new Other();
-//            Class<?> aClass = Class.forName("com.xt.Other2");
-//            Bianchengti test = new Bianchengti();
-//            Bianchengti.Coordinate a = new Bianchengti.Coordinate();
-//            Bianchengti.Coordinate b = new Bianchengti.Coordinate();
-//            Bianchengti.Coordinate p = new Bianchengti.Coordinate();
-//
-//            a.longitude = 50;
-//            a.latitude = 10;
-//
-//            b.longitude = 40;
-//            b.latitude = -10;
-//
-//            p.longitude = 60;
-//            p.latitude = 0;
+            Solution515 solution = new Solution515();
 
-
-//            boolean inside = test.isInside(a, b, p);
-//            System.out.println(inside);
-
-            Solution2024 solution = new Solution2024();
-
-
-            int[] ints1 = new int[]{6, 1, 5, 2};//预期19
-//            int[] ints2 = new int[]{2, 4, 6, 8};
-
-            String[] str1 = new String[]{"5", "2", "C", "D", "+"};
+            int[] ints1 = new int[]{1, 3, 1, 5, 4};
+            int[] ints2 = new int[]{9, 16, 14, 1, 5, 15, 6, 10, 1, 1, 7, 5, 11, 4, 4, 6};
+            String[] str1 = new String[]{"bar", "foo", "the"};
             String[] str2 = new String[]{"KFC", "Burger King", "Tapioca Express", "Shogun"};
 
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
-//            int[][] intss = new int[][]{{1,1},{2,1},{2,2},{1,2}};
-//            int[][] intss = getValues();
+//            int[][] intss = new int[][]{{0, 1}, {1, 1}, {2, 2}};
+            int[][] intss = getValues();
 //            ints1 = getValue();
 
 //            Object object = solution.add();
             long l = System.currentTimeMillis();
 //            int search = solution.search(integers, 5, true);
-            Object object = solution.maxConsecutiveAnswers("FFFTTFTTFT", 3);
+//            Object object = solution.deserialize("123");
+//            Object object = solution.deserialize("[123,456,7,8]");
+            TreeNode treeNode0 = new TreeNode(1);
+            TreeNode treeNode1 = new TreeNode(3);
+            TreeNode treeNode2 = new TreeNode(2);
+            TreeNode treeNode3 = new TreeNode(5);
+            TreeNode treeNode4 = new TreeNode(3);
+            TreeNode treeNode6 = new TreeNode(9);
+            treeNode0.left = treeNode1;
+            treeNode0.right = treeNode2;
+            treeNode1.left = treeNode3;
+            treeNode1.right = treeNode4;
+            treeNode2.right = treeNode6;
+
+
+            Object object = solution.largestValues(treeNode0);
             System.out.println("spendTime:" + (System.currentTimeMillis() - l));
             print(object);
+//            Solution solution2 = new Solution();
+//            solution2.test();
 
+
+//            int i1 = s1.hashCode();
+//            int i2 = s2.hashCode();
+//            System.out.println(s1.equals(s2));
         } catch (Exception e) {
             e.printStackTrace();
         }
 //        int[] ints = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 8,8, 9, 9, 10};
 //        int i = binarySearch(ints, 8);
 //        System.out.println(i);
+    }
+
+    final Solution4 solution4 = new Solution4();
+
+    private void test() {
+//        Solution4 solution4 = new Solution4();
     }
 
     private static int[] getValue() throws IOException {
