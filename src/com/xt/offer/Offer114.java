@@ -1,4 +1,4 @@
-package com.xt.leetcode;
+package com.xt.offer;
 
 import java.util.*;
 
@@ -55,7 +55,7 @@ import java.util.*;
  * <p>
  * state:done
  */
-public class Solution114 {
+public class Offer114 {
 
     public String alienOrder(String[] words) {
         HashSet<Character>[] sets = new HashSet[26];

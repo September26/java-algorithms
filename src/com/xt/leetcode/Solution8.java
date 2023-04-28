@@ -1,9 +1,6 @@
 package com.xt.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
@@ -35,7 +32,116 @@ import java.util.List;
  * done
  */
 public class Solution8 {
+
+
     public int myAtoi(String s) {
+        return processString(s);
+    }
+
+    // 初始化最初状态为开始状态
+    public static String currentState = "start";
+    // 记录所解析数值的正负性
+    public static int flag = 1;
+    // 记录当前解析出的字符串型的数值
+    public static StringBuilder builder = new StringBuilder();
+    // 填充规则，待会儿依据该规则进行状态判断
+    public static Map<String, String[]> states = new HashMap<>();
+
+    static {
+
+        states.put("start", new String[]{"start", "signed", "in-number", "end"});
+        states.put("signed", new String[]{"end", "end", "in-number", "end"});
+        states.put("in-number", new String[]{"end", "end", "in-number", "end"});
+        states.put("end", new String[]{"end", "end", "end", "end"});
+
+        // 默认赋值为0
+        builder.append(0);
+
+    }
+
+
+    public static int processString(String s) {
+
+        for (char c : s.toCharArray()) {
+
+            processChar(c);
+            // 若当前状态已被置为end，则直接将数值进行返回
+            if ("end".equals(currentState)) {
+
+                int num;
+                try {
+
+                    num = Integer.parseInt(builder.toString());
+
+                } catch (NumberFormatException e) {
+
+                    System.err.println("数值超限！");
+                    num = Integer.MAX_VALUE;
+
+                }
+
+                return num * flag;
+
+            } else {
+
+                // 若仍旧处于数值合法状态，则依据是否处于标记状态进行数据拼接以及一些数据正负性的相关操作
+                if ("signed".equals(currentState)) {
+
+                    flag = ('+' == c) ? 1 : -1;
+
+                } else if ("in-number".equals(currentState)) {
+
+                    builder.append(c);
+
+                }
+
+            }
+
+        }
+
+        // 解决数值超出整形范围的问题
+        int num;
+        try {
+
+            num = Integer.parseInt(builder.toString());
+
+        } catch (NumberFormatException e) {
+
+            System.err.println("数值超限！");
+            num = Integer.MAX_VALUE;
+
+        }
+
+        return num * flag;
+
+
+    }
+
+
+    public static void processChar(char c) {
+
+        // 取当前字符，依次按照规则进行状态匹配
+        if (' ' == c) {
+
+            currentState = states.get(currentState)[0];
+
+        } else if (('+' == c) || ('-' == c)) {
+
+            currentState = states.get(currentState)[1];
+
+        } else if (Character.isDigit(c)) {
+
+            currentState = states.get(currentState)[2];
+
+        } else {
+
+            currentState = states.get(currentState)[3];
+
+        }
+
+    }
+    
+    public int myAtoi2(String s) {
         int max = Integer.MAX_VALUE / 10;
         boolean isNegative = false;
         boolean isStart = false;//判断是否开始读取数字

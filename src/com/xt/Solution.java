@@ -2,20 +2,17 @@ package com.xt;
 
 
 import com.xt.leetcode.*;
+import com.xt.mianshi.MianShi0502;
+import com.xt.mianshi.MianShi1705;
 import com.xt.model.ListNode;
-import com.xt.model.Node;
 import com.xt.model.TreeNode;
-import com.xt.mst.SolutionMST1711;
-import com.xt.util.AlgorithmHelper;
+import com.xt.offer.Offer47;
+import com.xt.util.BinaryHelper;
 import com.xt.util.IOHelper;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
-import java.util.concurrent.CountDownLatch;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.function.Predicate;
 
 
 /**
@@ -23,65 +20,70 @@ import java.util.regex.Pattern;
  */
 public class Solution {
 
+
     public static void main(String[] args) {
         try {
-            Solution515 solution = new Solution515();
+            Solution2404 solution = new Solution2404();
+            //开始和结束节点只能是正数
+            int[] ints1 = new int[]{4, 4, 4, 9, 2, 4};
+            int[] ints2 = new int[]{2, 1, 2, 1};
+            int[] ints3 = new int[]{2, 3, 5};
 
-            int[] ints1 = new int[]{1, 3, 1, 5, 4};
-            int[] ints2 = new int[]{9, 16, 14, 1, 5, 15, 6, 10, 1, 1, 7, 5, 11, 4, 4, 6};
-            String[] str1 = new String[]{"bar", "foo", "the"};
-            String[] str2 = new String[]{"KFC", "Burger King", "Tapioca Express", "Shogun"};
+            String[] str1 = new String[]{"xbc", "pcxbcf", "xb", "cxbc", "pcxbc"};
+//            String[] str1 = new String[]{"gta", "gta(1)", "gta", "avalon"};
+//            String[] str2 = new String[]{"13:00", "13:20", "14:00", "18:00", "18:51", "19:30", "19:49"};
 
 //            char[][] stringss = new char[][]{{'.', '.', '.', '2', '.', '.', '.', '6', '3'}, {'3', '.', '.', '.', '.', '5', '4', '.', '1'}, {'.', '.', '1', '.', '.', '3', '9', '8', '.'}, {'.', '.', '.', '.', '.', '.', '.', '9', '.'}, {'.', '.', '.', '5', '3', '8', '.', '.', '.'}, {'.', '3', '.', '.', '.', '.', '.', '.', '.'}, {'.', '2', '6', '3', '.', '.', '5', '.', '.'}, {'5', '.', '3', '7', '.', '.', '.', '.', '8'}, {'4', '7', '.', '.', '.', '1', '.', '.', '.'}};
 //            int[][] intss = new int[][]{{0, 1}, {1, 1}, {2, 2}};
-            int[][] intss = getValues();
-//            ints1 = getValue();
+            int[][] intss = getValuess();
+//            String[] str = getStrings();
+//            int[] ints4 = getValues();
+//            int[][] intss1 = new int[][]{{1, 1}, {4, 5}, {3, 8}};
+//            int[][] intss2 = new int[][]{{3, 1}, {1, 5}};
 
-//            Object object = solution.add();
             long l = System.currentTimeMillis();
-//            int search = solution.search(integers, 5, true);
-//            Object object = solution.deserialize("123");
-//            Object object = solution.deserialize("[123,456,7,8]");
-            TreeNode treeNode0 = new TreeNode(1);
-            TreeNode treeNode1 = new TreeNode(3);
-            TreeNode treeNode2 = new TreeNode(2);
-            TreeNode treeNode3 = new TreeNode(5);
-            TreeNode treeNode4 = new TreeNode(3);
-            TreeNode treeNode6 = new TreeNode(9);
-            treeNode0.left = treeNode1;
-            treeNode0.right = treeNode2;
-            treeNode1.left = treeNode3;
-            treeNode1.right = treeNode4;
-            treeNode2.right = treeNode6;
-
-
-            Object object = solution.largestValues(treeNode0);
-            System.out.println("spendTime:" + (System.currentTimeMillis() - l));
+//            Object object2 = solution.isMatch("e","bc");
+            Object object = solution.mostFrequentEven(ints1);
             print(object);
-//            Solution solution2 = new Solution();
-//            solution2.test();
+            System.out.println("spendTime:" + (System.currentTimeMillis() - l));
+//            print(object);
 
-
-//            int i1 = s1.hashCode();
-//            int i2 = s2.hashCode();
-//            System.out.println(s1.equals(s2));
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        int[] ints = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 8,8, 9, 9, 10};
-//        int i = binarySearch(ints, 8);
-//        System.out.println(i);
     }
 
-    final Solution4 solution4 = new Solution4();
-
-    private void test() {
-//        Solution4 solution4 = new Solution4();
+    public void test(String... str) {
+        List<String> map = new ArrayList<>();
+        map.add("A");
+        map.add("BB");
+        map.add("CC");
+        map.add("D");
+        map.removeIf(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                if (s.length() == 2) {
+                    return true;
+                }
+                return false;
+            }
+        });
+        System.out.println(map.size());
     }
 
-    private static int[] getValue() throws IOException {
+
+    private static Solution558.Node create(int isLeaf, int val, String name) {
+        Solution558.Node node0 = new Solution558.Node(name);
+        node0.isLeaf = isLeaf == 1;
+        node0.val = val == 1;
+        return node0;
+    }
+
+
+    private static int[] getValues() throws IOException {
         InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
         String s = IOHelper.readStrByCode(inputStream, "utf-8");
+        s = s.replaceAll("[\\{\\}\\[\\]]", "");
         String[] strings = s.split(",");
         int[] ints1 = new int[strings.length];
         for (int i = 0; i < ints1.length; i++) {
@@ -90,7 +92,19 @@ public class Solution {
         return ints1;
     }
 
-    private static int[][] getValues() throws IOException {
+    private static String[] getStrings() throws IOException {
+        InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
+        String s = IOHelper.readStrByCode(inputStream, "utf-8").replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "");
+        return s.split(",");
+    }
+
+    private static String getInput() throws IOException {
+        InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
+        String s = IOHelper.readStrByCode(inputStream, "utf-8");
+        return s;
+    }
+
+    private static int[][] getValuess() throws IOException {
         InputStream inputStream = IOHelper.fromFileToIputStream(new File("input.txt"));
         String s = IOHelper.readStrByCode(inputStream, "utf-8");
         s = s.substring(1, s.length() - 1);
@@ -154,6 +168,21 @@ public class Solution {
                 builder.append(',');
             }
             System.out.print(builder.toString());
+            return;
+        }
+        if (obejct instanceof int[][]) {
+            for (int[] integers : (int[][]) obejct) {
+                StringBuilder builder = new StringBuilder();
+                builder.append('[');
+                for (int i = 0; i < integers.length; i++) {
+                    builder.append(integers[i]);
+                    if (i < integers.length - 1) {
+                        builder.append(',');
+                    }
+                }
+                builder.append(']');
+                System.out.println(builder.toString());
+            }
             return;
         }
         System.out.println(obejct);

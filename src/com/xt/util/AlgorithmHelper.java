@@ -34,7 +34,7 @@ public class AlgorithmHelper {
     }
 
     //取模运算
-    public static double ramainder(int dividend, int dividor) {
+    public static int ramainder(int dividend, int dividor) {
         return dividend - dividend / dividor * dividor;
     }
 

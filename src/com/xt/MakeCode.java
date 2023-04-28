@@ -19,13 +19,13 @@ public class MakeCode {
         MakeCode makeCode = new MakeCode();
 
         //生成二叉树代码
-        String str = "{1,3,2,5,3,null,9}";
+        String str = "[1,null,2,null,0,3]";
         makeCode.makeTreeNode(str);
 
 
         //生成链表代码
         makeCode = new MakeCode();
-//        String str2 = "{1,2,3,4,5,6,7}";
+        String str2 = "{2,7,4,3,5}";
 //        makeCode.makeListNode(str2);
 
         String str3 = "[[20,22],[71,38],[65,69],[63,69],[80,2],[67,31],[65,81],[4,58],[46,60],[32,20],[29,86],[74,73],[3,67],[26,0],[71,33],[76,84],[63,4],[36,12],[28,99],[27,85],[94,56],[32,78],[56,49],[63,27],[41,21],[91,96],[34,37],[9,24],[59,51],[82,6],[94,38],[70,87],[24,88],[42,18],[57,46],[69,47],[10,1],[34,67],[55,99],[81,23],[12,63],[24,75],[39,5],[41,42],[70,70],[7,86],[94,45],[28,81],[22,14],[80,87],[2,10],[26,88],[64,72],[92,69],[74,58],[44,38],[59,53],[10,67],[59,21],[17,54],[51,89],[8,37],[40,72],[71,31],[93,5],[57,88],[60,21],[47,40],[44,49],[16,14],[84,37],[38,1],[29,81],[79,38],[91,21],[4,42],[86,45],[62,81],[29,69],[22,71],[45,10],[28,80],[43,71],[25,87],[8,87],[89,42],[76,69],[97,9],[3,26],[81,19],[5,36],[31,100],[40,31],[23,12],[23,45]]";
@@ -83,7 +83,7 @@ public class MakeCode {
      */
     public void makeTreeNode(String str) {
 //        TreeNode treeNode1 = new TreeNode(1);
-        String replace = str.replaceAll("\\{|\\}", "");
+        String replace = str.replaceAll("\\{|\\}", "").replaceAll("\\[|\\]", "");
         String[] split = replace.split(",");
         List<TreeNode> treeNodes = new ArrayList<>();
         for (int i = 0; i < split.length; i++) {
@@ -91,7 +91,7 @@ public class MakeCode {
             if (value.equals("#") || value.equals("null")) {
                 treeNodes.add(null);
             } else {
-                treeNodes.add(new TreeNode(Integer.parseInt(value), "treeNode" + i));
+                treeNodes.add(new TreeNode(Integer.parseInt(value.trim()), "treeNode" + i));
             }
         }
         //开始输出new的对象
@@ -123,6 +123,9 @@ public class MakeCode {
             headList.addAll(childList);
             base = childList.size();
             sum += childAllList.size();
+            if (childAllList.size() == 0) {
+                break;
+            }
             TreeNode lastNode = childAllList.get(childAllList.size() - 1);
             if (treeNodes.indexOf(lastNode) == (treeNodes.size() - 1)) {
                 break;

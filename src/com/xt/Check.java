@@ -11,24 +11,10 @@ import java.util.*;
  */
 public class Check {
     public static void main(String[] args) {
-        Set<String> articleSet = getArticleSet();
-        Set<String> javaSet = getJavaSet();
-        List<Integer> list = new ArrayList<>();
-        int num = 0;
-        for (String str : javaSet) {
-            if (articleSet.contains(str)) {
-                continue;
-            }
-            num++;
-            if (str.endsWith("gti")) {
-                System.out.println("");
-            }
-            list.add(Integer.parseInt(str));
-        }
-        Collections.sort(list);
-        for (Integer i : list) {
-            System.out.println(i);
-        }
+        Hashtable<String, String> map = new Hashtable<>();
+        map.put("aaa", null);
+        String s = map.get("aaa");
+        System.out.println(s);
     }
 
     private static Set<String> getJavaSet() {
@@ -45,7 +31,7 @@ public class Check {
         return set;
     }
 
-//力扣解法汇总
+    //力扣解法汇总
     private static Set<String> getArticleSet() {
         Set<String> set = new HashSet<>();
         try {

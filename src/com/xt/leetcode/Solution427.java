@@ -1,5 +1,7 @@
 package com.xt.leetcode;
 
+import com.xt.model.QuadtreeNodel;
+
 import java.util.Vector;
 
 /**
@@ -97,12 +99,12 @@ import java.util.Vector;
  */
 public class Solution427 {
 
-    public Node construct(int[][] grid) {
-        Node construct = construct(grid, 0, grid[0].length, 0, grid.length);
+    public QuadtreeNodel.Node construct(int[][] grid) {
+        QuadtreeNodel.Node construct = construct(grid, 0, grid[0].length, 0, grid.length);
         return construct;
     }
 
-    public Node construct(int[][] grid, int startX, int endX, int startY, int endY) {
+    public QuadtreeNodel.Node construct(int[][] grid, int startX, int endX, int startY, int endY) {
 
         //是否值相同
         boolean isEqual = true;
@@ -121,7 +123,7 @@ public class Solution427 {
                 break flag;
             }
         }
-        Node node = new Node();
+        QuadtreeNodel.Node node = new QuadtreeNodel.Node();
         if (isEqual) {
             node.val = value == 1;
             node.isLeaf = true;
@@ -139,40 +141,5 @@ public class Solution427 {
         return node;
     }
 
-    static class Node {
-        public boolean val;
-        public boolean isLeaf;
-        public Node topLeft;
-        public Node topRight;
-        public Node bottomLeft;
-        public Node bottomRight;
 
-
-        public Node() {
-            this.val = false;
-            this.isLeaf = false;
-            this.topLeft = null;
-            this.topRight = null;
-            this.bottomLeft = null;
-            this.bottomRight = null;
-        }
-
-        public Node(boolean val, boolean isLeaf) {
-            this.val = val;
-            this.isLeaf = isLeaf;
-            this.topLeft = null;
-            this.topRight = null;
-            this.bottomLeft = null;
-            this.bottomRight = null;
-        }
-
-        public Node(boolean val, boolean isLeaf, Node topLeft, Node topRight, Node bottomLeft, Node bottomRight) {
-            this.val = val;
-            this.isLeaf = isLeaf;
-            this.topLeft = topLeft;
-            this.topRight = topRight;
-            this.bottomLeft = bottomLeft;
-            this.bottomRight = bottomRight;
-        }
-    }
 }
